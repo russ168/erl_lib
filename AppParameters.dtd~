@@ -1,0 +1,348 @@
+<!ENTITY % ht       "help|title">
+<!ENTITY % pckw     "#PCDATA|kw|br">
+<!ENTITY % citem    "%pckw;|include|subst|lang">
+<!ENTITY % navig    "nbblock|a|form|%citem;">
+
+<!-- MAX ENTITIES -->
+<!ENTITY % max_component "(image | button | string_item | ticker | separator | gauge | timer | carousel)">
+<!ENTITY % component     "(%navig; | %max_component;)">
+
+<!-- Hexadecimal RGB codes such as #5470ff (dark blue) are also supported for the color -->
+<!ENTITY % color "(white | black | lime | darkgray | gray | red | blue | yellow | orange | magenta | transparent | pink | cyan | green | maroon | navy | olive | purple | silver | teal | brown)">
+
+<!ENTITY % boolean "(true | false)">
+
+<!ENTITY % thickness "(empty | thin | medium | thick)">
+
+<!ENTITY % halign "(left | center | right | fill)">
+
+<!ENTITY % valign "(top | center | bottom | fill)">
+
+<!ENTITY % span
+   "colspan NMTOKEN #IMPLIED
+    rowspan NMTOKEN #IMPLIED"
+>
+
+<!ENTITY % action "(query_server | call_platform_request | send_sms | display_menu_items | display_window | call_command)">
+
+<!ENTITY % text_alignment "(top | left | bottom | center | right)">
+
+<!ENTITY % choice_group_type "(radio | check | combo)">
+
+<!ENTITY % constraint "(any | emailaddr | numeric | phonenumber | url | decimal)" >
+
+<!ENTITY % speed "(slow | medium | fast)">
+
+<!ENTITY % command "(beep | exit | settings | back | home | menu | cancel | go_to_bookmarks | add_to_bookmarks | help | clear_cache)">
+
+<!ENTITY % scroll "(horizontal | vertical | circular)">
+
+<!-- Component descriptions -->
+
+<!ELEMENT pages (page*)>
+<!ATTLIST pages
+          expiration CDATA #IMPLIED
+          lifetime   CDATA #IMPLIED
+          descr      CDATA #IMPLIED>
+
+<!ELEMENT page ( (%ht;)*, (redirect | (background_normal?, ((%component; | panel)* | tab_pane), left_softkey?, right_softkey?)) )>
+<!ATTLIST page
+          focus_id     CDATA                              #IMPLIED
+          cost         CDATA                              #IMPLIED
+          tag          CDATA                              #IMPLIED
+          hist         (default|donthist|dohist|bookmark) "default"
+          volatile     %boolean;                          "false"
+          nav          (default|end|stop)                 "default"
+          backtext     CDATA                              #IMPLIED
+          menutext     CDATA                              #IMPLIED
+          helptext     CDATA                              #IMPLIED
+          hometext     CDATA                              #IMPLIED
+	  show_indexes %boolean;                          "false"
+	  font         CDATA                              "bitmap"
+          log          CDATA                              #IMPLIED
+          ismenu       %boolean;                          "false"
+          descr        CDATA                              #IMPLIED
+	  count	       (true|false)			  "true">
+
+<!ELEMENT help (%citem;)*>
+
+<!ELEMENT title (%citem;)*>
+
+<!ELEMENT kw EMPTY>
+<!ATTLIST kw
+          kw CDATA #REQUIRED>
+
+<!ELEMENT lang (l|da|de|el|en|es|fi|fr|it|nl|pt|sv)*>
+<!ELEMENT l (%component;)*>
+<!ATTLIST l code CDATA #REQUIRED>
+<!ELEMENT da (%component;)*>
+<!ELEMENT de (%component;)*>
+<!ELEMENT el (%component;)*>
+<!ELEMENT en (%component;)*>
+<!ELEMENT es (%component;)*>
+<!ELEMENT fi (%component;)*>
+<!ELEMENT fr (%component;)*>
+<!ELEMENT it (%component;)*>
+<!ELEMENT nl (%component;)*>
+<!ELEMENT pt (%component;)*>
+<!ELEMENT sv (%component;)*>
+
+<!ELEMENT a ((%citem;|help)*)>
+<!ATTLIST a
+          cost CDATA #IMPLIED
+          href CDATA #REQUIRED
+          key  CDATA #IMPLIED>
+
+<!ELEMENT form      ((entry | choices_group)*,button?)>
+<!ATTLIST form
+          action     CDATA                          #REQUIRED
+          method     (GET|POST)                     "GET"
+	  keywords   (default|disable|user_defined) "default"
+          back       CDATA                          #IMPLIED
+          menu       CDATA                          #IMPLIED
+          home       CDATA                          #IMPLIED
+          help       CDATA                          #IMPLIED
+          sms        CDATA                          #IMPLIED
+          bookmark   CDATA                          #IMPLIED
+          price      CDATA                          #IMPLIED
+          reset_lang CDATA                          #IMPLIED>
+
+<!ELEMENT entry (text?, prompt?, default?)>
+<!ATTLIST entry
+          name                  CDATA #IMPLIED
+          var                   CDATA #IMPLIED
+          pref                  CDATA #IMPLIED
+          width                 CDATA #IMPLIED
+          kind                  (alphanum|digits) "alphanum"
+          type                  (text|password|ccnumber|phonenumber) "text"
+          constraint            %constraint; "any"
+          password              %boolean;    "false"
+          uneditable            %boolean;    "false"
+          sensitive             %boolean;    "false"
+          non_predictive        %boolean;    "false"
+          title                 CDATA #IMPLIED
+          valign                %valign;    "top"
+          %span;>
+          
+<!ELEMENT prompt (%citem;)*>
+<!ELEMENT default (%citem;)*>
+
+<!ELEMENT item (%citem;)*>
+<!ATTLIST item
+          code      CDATA #REQUIRED>
+
+<!ELEMENT include EMPTY>
+<!ATTLIST include
+          src CDATA #REQUIRED>
+
+<!ELEMENT subst EMPTY>
+<!ATTLIST subst
+          name CDATA #REQUIRED>
+
+<!ELEMENT redirect EMPTY>
+<!ATTLIST redirect
+          src CDATA #REQUIRED>
+
+<!ELEMENT br EMPTY>
+
+<!ELEMENT nbblock (%component;)*>
+
+<!-- Max COMPONENTS -->
+
+<!-- panel is a basic container. set num_columns to use as grid/table -->
+<!ELEMENT panel ( (background_normal?), (((%component;) | panel | include)*) )>
+<!ATTLIST panel
+  num_columns    NMTOKEN     "1"
+  padding        NMTOKEN     "2"
+  border_color   %color;     "transparent"
+  border_size    %thickness; "medium"
+  focus_id       CDATA       #IMPLIED
+  title          CDATA       #IMPLIED
+>
+
+<!-- tab pane is a top level container. contains a list of tabs -->
+<!ELEMENT tab_pane ((tab_item+),(background_normal?))>
+<!ATTLIST tab_pane
+  tab_location    (top | bottom | left | right) "top"
+  tab_items_size  NMTOKEN  "20"
+>
+
+<!-- tab button - each individual tab contains a panel -->
+<!ELEMENT tab_item ((text),(panel),(background_normal?), (background_focused?),(background_selected?))>
+<!ATTLIST tab_item
+  id            CDATA             #IMPLIED
+  text_location %text_alignment;  "center"
+  selected      %boolean;         "false"
+>
+
+<!--widget component - describes a button-->
+<!ELEMENT button ((%action;)?, (image)?, (text)?, (detail_text)?, (gauge)?, (background_normal?), (background_focused?))>
+<!ATTLIST button
+  style         CDATA       #IMPLIED
+  id            CDATA       #IMPLIED
+  halign        %halign;    "fill"
+  valign        %valign;    "top"
+  %span;
+  text_location  %text_alignment; "center"
+>
+
+<!-- button group or choice group -->
+<!ELEMENT choices_group (text,choice+)>
+<!ATTLIST choices_group
+  valign        %valign;      "top"
+  %span;
+  name           CDATA #REQUIRED
+  type           %choice_group_type; #REQUIRED
+>
+
+<!-- represents an option in the choice group -->
+<!ELEMENT choice (text)>
+<!ATTLIST choice
+  selected       %boolean;       "false"
+>
+
+<!-- describes an uneditable text field -->
+<!ELEMENT string_item ((text), (background_normal?))>
+<!ATTLIST string_item
+  style         CDATA       #IMPLIED
+  halign        %halign;      "fill"
+  valign        %valign;      "top"
+  %span;
+>
+
+<!-- describes a scrolling ticker -->
+<!ELEMENT ticker ((%action;)?,(text),(background_normal?), (background_focused?))>
+<!ATTLIST ticker
+  style  CDATA    #IMPLIED
+  id     CDATA    #IMPLIED
+  valign %valign; "top"
+  %span;
+  speed  %speed;  "medium"
+>
+
+<!-- timer object. executes action -->
+<!ELEMENT timer (%action;)>
+<!ATTLIST timer
+  interval NMTOKEN #REQUIRED
+>
+
+<!-- gauge. display value relative to max_value -->
+<!ELEMENT gauge ((text?), (detail_text?))>
+<!ATTLIST gauge
+  style            CDATA    #IMPLIED
+  %span;
+  valign           %valign; "top"
+  value            NMTOKEN  #REQUIRED
+  min_value        NMTOKEN  "0"
+  max_value        NMTOKEN  #REQUIRED
+  background_color %color;  "black"
+  filled_color     %color;  "blue"
+  font_color       %color;  "black"
+>
+
+<!-- a line break that contains a colorful bar and an optional text -->
+<!ELEMENT separator (text?)>
+<!ATTLIST separator
+  style       CDATA       #IMPLIED
+  color       %color;     "black"
+  thickness   %thickness; "medium"
+>
+
+<!-- lists and carousel -->
+<!ELEMENT carousel ((button+), (background_normal?))>
+<!ATTLIST carousel
+  %span;
+  halign      %halign;    "fill"
+  valign      %valign;    "top"
+  visible_buttons_number  NMTOKEN   "3"
+  scroll                  %scroll;  #REQUIRED
+  padding                 NMTOKEN   "2"
+  arrow_color             %color;   "transparent"
+  vertical_size           NMTOKEN   #IMPLIED
+>
+
+<!-- text element, used by other elements -->
+<!ELEMENT text (#PCDATA|br)*>
+<!ATTLIST text
+  font_color         %color; #IMPLIED
+  font_color_focused %color; #IMPLIED
+>
+
+<!ELEMENT detail_text (#PCDATA|br)*>
+<!ATTLIST detail_text
+  font_color         %color; #IMPLIED
+  font_color_focused %color; #IMPLIED
+>
+
+<!-- a background component - describes a filled rectangle -->
+<!ELEMENT rectangle EMPTY>
+<!ATTLIST rectangle
+  top_color      %color;     "transparent"
+  color          %color;     "transparent"
+  bottom_color   %color;     "transparent"
+  border_color   %color;     "transparent"
+  border_size    %thickness; "thin"
+>
+
+<!-- describes an image -->
+<!ELEMENT image EMPTY>
+<!ATTLIST image
+  style            CDATA       #IMPLIED
+  %span;
+  halign           %halign;    "center"
+  valign           %valign;    "center"
+  image_url        CDATA       #REQUIRED
+  background_color %color;     "transparent"
+  border_color     %color;     "transparent"
+  border_size      %thickness; "medium"  
+>
+
+<!-- background states -->
+<!ELEMENT background_normal (rectangle | image)>
+<!ELEMENT background_focused (rectangle | image)>
+<!ELEMENT background_selected (rectangle | image)>
+
+<!-- ======================================= ACTIONS ======================================= -->
+
+<!-- queries server -->
+<!ELEMENT query_server EMPTY>
+<!ATTLIST query_server
+  input       CDATA #IMPLIED
+  target_url  CDATA #IMPLIED
+  focus_id    CDATA #IMPLIED
+>
+
+<!-- calls platformRequest -->
+<!ELEMENT call_platform_request EMPTY>
+<!ATTLIST call_platform_request
+  argument    CDATA #REQUIRED
+  resume      %boolean; "true"
+>
+
+<!-- sends an SMS -->
+<!ELEMENT send_sms EMPTY>
+<!ATTLIST send_sms
+  content        CDATA #IMPLIED
+  target_msisdn  CDATA #REQUIRED
+>
+
+<!-- calls system commands -->
+<!ELEMENT call_command EMPTY>
+<!ATTLIST call_command
+  command %command; #REQUIRED
+>
+
+<!-- displays a popup menu -->
+<!ELEMENT display_menu_items (menu_item+, background_normal?, background_focused?)>
+
+<!-- displays a popup window -->
+<!ELEMENT display_window ((text), (left_softkey?), (right_softkey?), (background_normal?))>
+
+<!-- a menu item for popup menus -->
+<!ELEMENT menu_item ((text),(%action;),(background_focused?))>
+
+<!-- overrides the left softkey -->
+<!ELEMENT left_softkey (text?, (%action;)?, background_normal?, background_focused?)>
+
+<!-- overrides the right softkey -->
+<!ELEMENT right_softkey (text?, (%action;)?, background_normal?, background_focused?)>

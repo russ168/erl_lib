@@ -1,0 +1,20 @@
+{application, interfaces, 
+[{description, "Receive/Send messages from/to outside world"},
+ {vsn, "1.0"},
+ {modules, [interfaces_app, interfaces_supervisor,
+            log_hander, alarm_hander,
+            tcp_interface,
+	    udp_interface,
+            httpclient_interface,
+            httpserver_interface]},
+ {registered, [tcp_interface, 
+               udp_interface,
+               httpclient_interface,
+               httpserver_interface]},
+ {applications, [kernel, stdlib]},
+ {mod, {interfaces_app, []}}, 
+ {start_phases, []}
+]}.
+ 
+
+	    

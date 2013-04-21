@@ -1,0 +1,37 @@
+# leave these lines alone
+vpath %.erl src test
+vpath %.beam ebin
+vpath %.hrl include
+
+ERL = erl -boot start_clean
+
+# Here's a list of the erlang modules you want compiling
+
+SRCS := $(wildcard src/*.erl)
+
+# The first target in any makefile is the default target.
+all: compile
+
+compile: ${SRCS:%.erl=%.beam} subdirs
+
+%.beam: %.erl
+	erlc -W -o ebin $<
+
+## special compilation requirements are added here
+specical1.beam: special1.erl
+	${ERL} -Dflag1 -W0 special1.erl
+
+## run an application from the makefile
+application: compile
+	${ERL} -pa ebin -s application start webmin
+
+# the subdirs target compiles any code in sub-dirctories
+subdirs:
+#	cd dir1; make
+#	cd dir2; make
+
+# remove all the code
+clean:
+	rm -rf *.beam erl_crash.dump
+	cd dir1; make clean
+	cd dir2; make clean

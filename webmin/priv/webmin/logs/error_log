@@ -1,0 +1,83 @@
+[28/Feb/2011:14:53:34 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:14:53:40 +0800] access to /oma/config/webmin_config:show failed for 192.168.196.1, reason: {undef,
+                                                                                                         [{webmin_config,
+                                                                                                           show,
+                                                                                                           [[{server_software,
+                                                                                                              "inets/4.7.16"},
+                                                                                                             {server_name,
+                                                                                                              "localhost"},
+                                                                                                             {gateway_interface,
+                                                                                                              "CGI/1.1"},
+                                                                                                             {server_protocol,
+                                                                                                              "HTTP/1.1"},
+                                                                                                             {server_port,
+                                                                                                              8080},
+                                                                                                             {request_method,
+                                                                                                              "GET"},
+                                                                                                             {remote_addr,
+                                                                                                              "192.168.196.1"},
+                                                                                                             {script_name,
+                                                                                                              "/oma/config/webmin_config:show"},
+                                                                                                             {http_accept,
+                                                                                                              "image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, application/x-ms-application, application/x-ms-xbap, application/vnd.ms-xpsdocument, application/xaml+xml, application/vnd.ms-excel, application/vnd.ms-powerpoint, application/msword, */*"},
+                                                                                                             {http_referer,
+                                                                                                              "http://192.168.196.128:8080/"},
+                                                                                                             {http_accept_language,
+                                                                                                              "zh-cn"},
+                                                                                                             {http_accept_encoding,
+                                                                                                              "gzip, deflate"},
+                                                                                                             {http_user_agent,
+                                                                                                              "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)"},
+                                                                                                             {http_host,
+                                                                                                              "192.168.196.128:8080"},
+                                                                                                             {http_connection,
+                                                                                                              "Keep-Alive"}],
+                                                                                                            []]},
+                                                                                                          {mod_esi,
+                                                                                                           erl_scheme_webpage_whole,
+                                                                                                           5},
+                                                                                                          {httpd_response,
+                                                                                                           traverse_modules,
+                                                                                                           2},
+                                                                                                          {httpd_response,
+                                                                                                           generate_and_send_response,
+                                                                                                           1},
+                                                                                                          {httpd_request_handler,
+                                                                                                           handle_response,
+                                                                                                           1},
+                                                                                                          {gen_server,
+                                                                                                           handle_msg,
+                                                                                                           6},
+                                                                                                          {proc_lib,
+                                                                                                           init_p,
+                                                                                                           5}]}
+[28/Feb/2011:14:53:42 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:14:53:53 +0800] access to /cellcube/control/webmin_interface:show failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/cellcube/control/webmin_interface:show"
+[28/Feb/2011:14:53:59 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:14:56:20 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:14:56:21 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:33:31 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:33:33 +0800] access to /webmin_test:show failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/webmin_test:show"
+[28/Feb/2011:15:33:35 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:33:36 +0800] access to /oma/status/webmin_test:show failed for 192.168.196.1, reason: "mod_esi: Client not authorized to evaluate: webmin_test:show"
+[28/Feb/2011:15:33:36 +0800] access to /oma/status/webmin_test:show failed for 192.168.196.1, reason: "mod_esi: Client not authorized to evaluate: webmin_test:show"
+[28/Feb/2011:15:33:39 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:33:41 +0800] access to /webmin_test:show failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/webmin_test:show"
+[28/Feb/2011:15:33:48 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:35:10 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:35:12 +0800] access to /webmin_test:show failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/webmin_test:show"
+[28/Feb/2011:15:35:14 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:35:15 +0800] access to /oma/status/webmin_test:show failed for 192.168.196.1, reason: "mod_esi: Client not authorized to evaluate: webmin_test:show"
+[28/Feb/2011:15:35:15 +0800] access to /oma/status/webmin_test:show failed for 192.168.196.1, reason: "mod_esi: Client not authorized to evaluate: webmin_test:show"
+[28/Feb/2011:15:35:44 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:35:46 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:42:22 +0800] access to /oma/oma_style.css failed for 192.168.196.1, reason: "httpd_file: Can't accesspriv/webmin/htdocs/oma/oma_style.css"
+[28/Feb/2011:15:42:24 +0800] reporting error: traverse exit from apply: mod_esi:do => 
+{{badmatch,socket_closed},
+ [{httpd_response,send_body,3},
+  {mod_esi,erl_scheme_webpage_whole,5},
+  {httpd_response,traverse_modules,2},
+  {httpd_response,generate_and_send_response,1},
+  {httpd_request_handler,handle_response,1},
+  {gen_server,handle_msg,6},
+  {proc_lib,init_p,5}]}

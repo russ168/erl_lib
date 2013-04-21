@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE pages SYSTEM "AppParameters.dtd">
+
+<parameters>
+
+<parameter key="key1">
+  <type>string</type>  
+</parameter>
+
+<parameter key="key2">
+  <type>integer</type>
+</parameter>
+
+<parameter key="key3">
+  <type>
+    <list>any</list>
+  </type>  
+</parameter>
+
+<parameter key="key4">
+  <type>
+    <list>
+      <tuple>
+	  <field label="field1">
+	    <type>string</type>
+	  </field>
+	  <field label="field2">
+	    <type>string</type>
+	  </field>
+	</tuple>
+      </list>
+  </type>  
+</parameter>
+
+<parameter key="key5">
+  <type>
+    <list>
+      <record name="midlet_cfg">
+	  <field label="field1">
+	    <type>string</type>
+	  </field>
+	  <field label="field2">
+	    <type>string</type>
+	  </field>
+	</record>
+    </list>
+  </type>  
+</parameter>
+
+<parameter key="key6">
+  <type>
+    <tuple>
+      <field label="field1">
+	<type>string</type>
+      </field>
+      <field label="field2">
+	<type>string</type>
+      </field>
+    </tuple>
+  </type>
+</parameter>
+
+<parameter key="key7">
+  <type>
+    <list>
+      <record name="midlet_cfg">
+	<field label="field1">
+	  <type>string</type>
+	</field>
+	<field label="field2">
+	  <type>
+	    <list>
+	      <tuple>
+		<field label="field1">
+		  <type>string</type>
+		</field>
+		<field label="field2">
+		  <type>string</type>
+		</field>
+	      </tuple>
+	    </list>
+	  </type>
+	</field>
+      </record>
+    </list>
+  </type>  
+</parameter>
+
+</parameters>

@@ -1,0 +1,17 @@
+<!ELEMENT parameters (parameter*)>
+
+<!ELEMENT parameter (type)>
+<!ATTLIST parameter
+          key   CDATA   #IMPLIED
+	  >
+
+<!ELEMENT type (any| string| interger | list | tuple | record)>
+
+<!ELEMENT list (any | string | interger | list | tuple | record)+>
+
+<!ELEMENT tuple (field)+>
+
+<!ELEMENT record (field)+>
+<!ATTLIST record
+	  name   CDATA   #IMPLIED
+	  >
